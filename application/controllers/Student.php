@@ -33,4 +33,11 @@ class Student extends CI_Controller
             redirect('student');
         }
     }
+
+    public function delete($id)
+    {
+        $this->Student_model->deleteStudentData($id);
+        $this->session->set_flashdata('message', 'Data deleted successfully');
+        redirect('student');
+    }
 }
