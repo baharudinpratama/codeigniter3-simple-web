@@ -20,7 +20,6 @@ class Student_model extends CI_Model
 
     public function deleteStudentData($id)
     {
-        $this->db->where('id', $id);
-        $this->db->delete('students');
+        $this->db->delete('students', ['id' => $id]);
     }
 }
