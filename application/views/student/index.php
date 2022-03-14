@@ -21,7 +21,11 @@
             <h1 class="h3">Student List</h1>
             <ul class="list-group">
                 <?php foreach ($students as $student) : ?>
-                    <li class="list-group-item"><?= $student['name']; ?><a href="<?= base_url('student/delete/' . $student['id']); ?>" class="badge badge-danger float-right" onclick="return confirm('Are you sure?');">delete</a></li>
+                    <li class="list-group-item">
+                        <?= $student['name']; ?>
+                        <a href="<?= base_url('student/delete/' . $student['id']); ?>" class="badge badge-danger float-right" onclick="return confirm('Are you sure?');">delete</a>
+                        <a href="<?= base_url('student/detail/' . $student['id']); ?>" class="badge badge-primary float-right">detail</a>
+                    </li>
                 <?php endforeach; ?>
             </ul>
         </div>

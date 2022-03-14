@@ -40,4 +40,13 @@ class Student extends CI_Controller
         $this->session->set_flashdata('message', 'Data deleted successfully');
         redirect('student');
     }
+
+    public function detail($id)
+    {
+        $data['title'] = "Student Detail";
+        $data['student'] = $this->Student_model->getStudentById($id);
+        $this->load->view('templates/header', $data);
+        $this->load->view('student/detail', $data);
+        $this->load->view('templates/footer');
+    }
 }

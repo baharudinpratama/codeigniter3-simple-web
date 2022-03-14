@@ -22,4 +22,9 @@ class Student_model extends CI_Model
     {
         $this->db->delete('students', ['id' => $id]);
     }
+
+    public function getStudentById($id)
+    {
+        return $this->db->get_where('students', ['id' => $id])->row_array();
+    }
 }
