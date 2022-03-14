@@ -29,6 +29,7 @@ class Student extends CI_Controller
             $this->load->view('templates/footer');
         } else {
             $this->Student_model->insertStudentData();
+            $this->session->set_flashdata('message', 'New data created successfully');
             redirect('student');
         }
     }
