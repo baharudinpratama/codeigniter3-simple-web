@@ -34,6 +34,25 @@ class Student extends CI_Controller
         }
     }
 
+    public function edit($id)
+    {
+        $data['title'] = "Update Student Data";
+        $data['student'] = $this->Student_model->getStudentById($id);
+        $data['majors'] = ['Civil Engineering', 'Informatics Engineering'];
+        $this->form_validation->set_rules('name', 'Name', 'required');
+        $this->form_validation->set_rules('nim', 'NIM', 'required|numeric');
+        $this->form_validation->set_rules('email', 'Email', 'required|valid_email');
+        if ($this->form_validation->run() == false) {
+            $this->load->view('templates/header', $data);
+            $this->load->view('student/edit', $data);
+            $this->load->view('templates/footer');
+        } else {
+            $this->Student_model->updateStudentData();
+            $this->session->set_flashdata('message', 'Student data updated successfully');
+            redirect('student');
+        }
+    }
+
     public function delete($id)
     {
         $this->Student_model->deleteStudentData($id);

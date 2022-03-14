@@ -24,6 +24,7 @@
                     <li class="list-group-item">
                         <?= $student['name']; ?>
                         <a href="<?= base_url('student/delete/' . $student['id']); ?>" class="badge badge-danger float-right" onclick="return confirm('Are you sure?');">delete</a>
+                        <a href="<?= base_url('student/edit/' . $student['id']); ?>" class="badge badge-success float-right">edit</a>
                         <a href="<?= base_url('student/detail/' . $student['id']); ?>" class="badge badge-primary float-right">detail</a>
                     </li>
                 <?php endforeach; ?>
